@@ -53,7 +53,10 @@ settings:
 */
 
 .theme-dark,
-.theme-dark.kanso-zen {
+.theme-dark.kanso-zen,
+.theme-light.kanso-zen,
+.theme-light.kanso-ink,
+.theme-light.kanso-mist {
   --kanso-bg0: #090e13;
   --kanso-bg1: #1c1e25;
   --kanso-bg2: #22262d;
@@ -83,7 +86,7 @@ settings:
   --kanso-diff-change: #252535;
 }
 
-.theme-dark.kanso-ink {
+.kanso-ink {
   --kanso-bg0: #14171d;
   --kanso-bg1: #1f1f26;
   --kanso-bg2: #22262d;
@@ -91,7 +94,7 @@ settings:
   --kanso-bg4: #4b4e57;
 }
 
-.theme-dark.kanso-mist {
+.kanso-mist {
   --kanso-bg0: #22262d;
   --kanso-bg1: #2a2c35;
   --kanso-bg2: #393b44;
@@ -99,8 +102,9 @@ settings:
   --kanso-bg4: #717c7c;
 }
 
-.theme-light,
-.theme-light.kanso-pearl {
+.theme-light:not(.kanso-zen):not(.kanso-ink):not(.kanso-mist),
+.theme-light.kanso-pearl,
+.theme-dark.kanso-pearl {
   --kanso-bg0: #f2f1ef;
   --kanso-bg1: #e2e1df;
   --kanso-bg2: #dddddb;
@@ -237,8 +241,8 @@ body {
   --scrollbar-thumb-bg: var(--kanso-bg3);
   --scrollbar-active-thumb-bg: var(--kanso-bg4);
 
-  --h1-color: var(--kanso-red-soft);
-  --h2-color: var(--kanso-yellow);
+  --h1-color: var(--kanso-yellow);
+  --h2-color: var(--kanso-red-soft);
   --h3-color: var(--kanso-green);
   --h4-color: var(--kanso-blue);
   --h5-color: var(--kanso-violet);
@@ -302,6 +306,24 @@ body {
 }
 
 .theme-light {
+  --accent-h: 219;
+  --accent-s: 34%;
+  --accent-l: 45%;
+  --background-modifier-box-shadow: rgba(34, 38, 45, 0.15);
+  --text-on-accent: #f2f1ef;
+}
+
+.theme-light.kanso-zen,
+.theme-light.kanso-ink,
+.theme-light.kanso-mist {
+  --accent-h: 195;
+  --accent-s: 43%;
+  --accent-l: 65%;
+  --background-modifier-box-shadow: rgba(0, 0, 0, 0.25);
+  --text-on-accent: var(--kanso-bg0);
+}
+
+.theme-dark.kanso-pearl {
   --accent-h: 219;
   --accent-s: 34%;
   --accent-l: 45%;

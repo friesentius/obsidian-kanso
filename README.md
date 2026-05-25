@@ -14,13 +14,16 @@ Then open **Settings → Appearance → Themes** and select **Kanso**.
 
 ## Variants
 
-Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin to switch variants from the **Kanso** section:
+Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin and pick a variant from the **Kanso** section:
 
 - Kanso Zen
 - Kanso Ink
 - Kanso Mist
 - Kanso Pearl
 
-Without Style Settings, Obsidian uses Zen for dark mode and Pearl for light mode.
+The selected variant overrides Obsidian's base color scheme:
 
-Theme variants are also available through Obsidian's native theme variant support in the Appearance settings.
+- Kanso Pearl always uses the light palette.
+- Kanso Zen, Kanso Ink, and Kanso Mist always use dark palettes.
+
+Style Settings also provides Kanso layout controls (readable width, radius, editor font size).
