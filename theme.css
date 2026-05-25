@@ -1,32 +1,30 @@
-/*
-Kanso for Obsidian
-Inspired by webhooked/kanso.nvim.
+/* @settings
 
-This theme follows Obsidian's current theme guidance by preferring CSS
-variables over direct component overrides. Direct selectors are kept small and
-limited to rendered Markdown/content styling where variables are not enough.
-
-Style Settings:
-  - id: kanso-theme
-    title: Kanso
-    type: heading
-    level: 1
-    collapsed: false
-  - id: kanso-variant
+name: Kanso
+id: kanso-theme
+settings:
+  -
+    id: kanso-variant
     title: Kanso Variant
+    description: Choose the active variant class for this theme.
     type: class-select
     allowEmpty: false
     default: kanso-zen
     options:
-      - label: Zen
+      -
+        label: Zen (dark)
         value: kanso-zen
-      - label: Ink
+      -
+        label: Ink (dark)
         value: kanso-ink
-      - label: Mist
+      -
+        label: Mist (dark)
         value: kanso-mist
-      - label: Pearl
+      -
+        label: Pearl (light)
         value: kanso-pearl
-  - id: kanso-readable-line-width
+  -
+    id: kanso-readable-line-width
     title: Readable line width
     type: variable-number-slider
     default: 760
@@ -34,7 +32,8 @@ Style Settings:
     max: 1100
     step: 20
     format: px
-  - id: kanso-radius
+  -
+    id: kanso-radius
     title: Radius
     type: variable-number-slider
     default: 8
@@ -42,7 +41,8 @@ Style Settings:
     max: 18
     step: 1
     format: px
-  - id: kanso-font-size
+  -
+    id: kanso-font-size
     title: Editor font size
     type: variable-number-slider
     default: 16
@@ -347,8 +347,8 @@ strong {
 
 .cm-hashtag,
 a.tag {
-  border-radius: 999px;
-  padding-inline: 0.45em;
+  border-radius: 0px;
+  padding-inline: 0.15em;
 }
 
 .markdown-rendered code,

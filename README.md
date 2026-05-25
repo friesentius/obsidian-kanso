@@ -7,14 +7,14 @@ An Obsidian app theme based on [`webhooked/kanso.nvim`](https://github.com/webho
 Copy this folder into:
 
 ```text
-<your-vault>/.obsidian/themes/obsidian-kanso
+<your-vault>/.obsidian/themes/Kanso
 ```
 
 Then open **Settings → Appearance → Themes** and select **Kanso**.
 
 ## Variants
 
-Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin to switch between:
+Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin to switch variants from the **Kanso** section:
 
 - Kanso Zen
 - Kanso Ink
@@ -22,3 +22,5 @@ Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings
 - Kanso Pearl
 
 Without Style Settings, Obsidian uses Zen for dark mode and Pearl for light mode.
+
+Theme variants are also available through Obsidian's native theme variant support in the Appearance settings.

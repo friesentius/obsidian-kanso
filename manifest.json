@@ -2,5 +2,6 @@
 	"name": "Kanso",
 	"version": "1.0.0",
 	"minAppVersion": "1.0.0",
-	"author": "friesentius"
+	"author": "friesentius",
+	"description": "A calm Kanso-inspired Obsidian theme with Zen, Ink, Mist, and Pearl variants."
 }
