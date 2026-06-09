@@ -29,7 +29,7 @@ settings:
     type: variable-number-slider
     default: 760
     min: 560
-    max: 1100
+    max: 1440
     step: 20
     format: px
   -
@@ -241,12 +241,12 @@ body {
   --scrollbar-thumb-bg: var(--kanso-bg3);
   --scrollbar-active-thumb-bg: var(--kanso-bg4);
 
-  --h1-color: var(--kanso-yellow);
-  --h2-color: var(--kanso-red-soft);
-  --h3-color: var(--kanso-green);
-  --h4-color: var(--kanso-blue);
-  --h5-color: var(--kanso-violet);
-  --h6-color: var(--kanso-aqua);
+  --h1-color: var(--kanso-red-soft);
+  --h2-color: var(--kanso-green);
+  --h3-color: var(--kanso-blue);
+  --h4-color: var(--kanso-violet);
+  --h5-color: var(--kanso-aqua);
+  --h6-color: var(--kanso-yellow);
   --h1-size: 1.75em;
   --h2-size: 1.45em;
   --h3-size: 1.25em;
@@ -438,4 +438,8 @@ blockquote,
 
 .markdown-rendered hr {
   border-color: var(--background-modifier-border);
+}
+
+.inline-title {
+  color: var(--kanso-yellow);
 }
