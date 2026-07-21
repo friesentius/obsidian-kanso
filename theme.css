@@ -192,6 +192,7 @@ body {
 
   --font-text-size: var(--kanso-font-size);
   --line-width: var(--kanso-readable-line-width);
+  --file-line-width: var(--kanso-readable-line-width);
   --line-height-normal: 1.65;
 
   --titlebar-background: var(--kanso-bg0);
