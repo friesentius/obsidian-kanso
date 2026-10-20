@@ -1187,3 +1187,6 @@ body:not(.kanso-image-zoom-disabled)
   height: 32px;
   transform: translate(-50%, -50%);
 }
+
+.kanso-lint-proof { color: red !important; }
+.kanso-lint-proof:has(span) { color: blue; }
