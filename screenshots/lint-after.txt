@@ -1,0 +1,98 @@
+
+theme-after.css
+   218:29  ✖  Expected complex :not() pseudo-class notation                                                                                                     selector-not-notation
+   218:45  ✖  Expected complex :not() pseudo-class notation                                                                                                     selector-not-notation
+   218:62  ✖  Expected complex :not() pseudo-class notation                                                                                                     selector-not-notation
+   258:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   271:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   283:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   285:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   289:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   296:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   301:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   307:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   314:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   320:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   326:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   332:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   342:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   346:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   360:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   367:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   380:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   399:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   410:3   ✖  Expected no empty line before custom property                                                                                                     custom-property-empty-line-before
+   430:37  ✖  Expected "rgba" to be "rgb"                                                                                                                       color-function-alias-notation
+   430:37  ✖  Expected modern color-function notation                                                                                                           color-function-notation
+   430:51  ✖  Expected "0.25" to be "25%"                                                                                                                       alpha-value-notation
+   448:37  ✖  Expected "rgba" to be "rgb"                                                                                                                       color-function-alias-notation
+   448:37  ✖  Expected modern color-function notation                                                                                                           color-function-notation
+   448:54  ✖  Expected "0.15" to be "15%"                                                                                                                       alpha-value-notation
+   459:37  ✖  Expected "rgba" to be "rgb"                                                                                                                       color-function-alias-notation
+   459:37  ✖  Expected modern color-function notation                                                                                                           color-function-notation
+   459:51  ✖  Expected "0.25" to be "25%"                                                                                                                       alpha-value-notation
+   467:37  ✖  Expected "rgba" to be "rgb"                                                                                                                       color-function-alias-notation
+   467:37  ✖  Expected modern color-function notation                                                                                                           color-function-notation
+   467:54  ✖  Expected "0.15" to be "15%"                                                                                                                       alpha-value-notation
+   553:16  ✖  Expected class selector ".HyperMD-codeblock" to be kebab-case                                                                                     selector-class-pattern
+   558:23  ✖  Expected class selector ".cm-gutterElement" to be kebab-case                                                                                      selector-class-pattern
+   566:45  ✖  Expected class selector ".cm-gutterElement" to be kebab-case                                                                                      selector-class-pattern
+   720:3   ✖  Expected empty line before declaration                                                                                                            declaration-empty-line-before
+   734:31  ✖  Expected class selector ".HyperMD-task-line" to be kebab-case                                                                                     selector-class-pattern
+   747:1   ✖  Expected selector "li[data-task="-"] > input:checked" to come before selector "li[data-task="x"] > p > input:checked", at line 743                no-descending-specificity
+   750:1   ✖  Expected selector "li[data-task=">"] > input:checked" to come before selector "li[data-task="x"] > p > input:checked", at line 743                no-descending-specificity
+   753:1   ✖  Expected selector "li[data-task="<"] > input:checked" to come before selector "li[data-task="x"] > p > input:checked", at line 743                no-descending-specificity
+   756:1   ✖  Expected selector "li[data-task="!"] > input:checked" to come before selector "li[data-task="x"] > p > input:checked", at line 743                no-descending-specificity
+   759:1   ✖  Expected selector "li[data-task="?"] > input:checked" to come before selector "li[data-task="x"] > p > input:checked", at line 743                no-descending-specificity
+   762:1   ✖  Expected selector "li[data-task="/"] > input:checked" to come before selector "li[data-task="x"] > p > input:checked", at line 743                no-descending-specificity
+   766:3   ✖  Expected empty line before custom property                                                                                                        custom-property-empty-line-before
+   770:1   ✖  Expected selector "li[data-task="-"] > input:checked" to come before selector "li[data-task="x"] > p > input:checked", at line 743                no-descending-specificity
+   780:1   ✖  Expected selector "li[data-task=">"] > input:checked" to come before selector "li[data-task="x"] > p > input:checked", at line 743                no-descending-specificity
+   781:1   ✖  Expected selector "li[data-task=">"] > p > input:checked" to come before selector "li[data-task="-"] > input:checked:hover", at line 769          no-descending-specificity
+   783:1   ✖  Expected selector "li[data-task=">"] > input:checked:hover" to come before selector "li[data-task="-"] > p > input:checked:hover", at line 769    no-descending-specificity
+   790:1   ✖  Expected selector "li[data-task="<"] > input:checked" to come before selector "li[data-task="x"] > p > input:checked", at line 743                no-descending-specificity
+   791:1   ✖  Expected selector "li[data-task="<"] > p > input:checked" to come before selector "li[data-task="-"] > input:checked:hover", at line 769          no-descending-specificity
+   793:1   ✖  Expected selector "li[data-task="<"] > input:checked:hover" to come before selector "li[data-task="-"] > p > input:checked:hover", at line 769    no-descending-specificity
+   800:1   ✖  Expected selector "li[data-task="!"] > input:checked" to come before selector "li[data-task="x"] > p > input:checked", at line 743                no-descending-specificity
+   801:1   ✖  Expected selector "li[data-task="!"] > p > input:checked" to come before selector "li[data-task="-"] > input:checked:hover", at line 769          no-descending-specificity
+   803:1   ✖  Expected selector "li[data-task="!"] > input:checked:hover" to come before selector "li[data-task="-"] > p > input:checked:hover", at line 769    no-descending-specificity
+   810:1   ✖  Expected selector "li[data-task="?"] > input:checked" to come before selector "li[data-task="x"] > p > input:checked", at line 743                no-descending-specificity
+   811:1   ✖  Expected selector "li[data-task="?"] > p > input:checked" to come before selector "li[data-task="-"] > input:checked:hover", at line 769          no-descending-specificity
+   813:1   ✖  Expected selector "li[data-task="?"] > input:checked:hover" to come before selector "li[data-task="-"] > p > input:checked:hover", at line 769    no-descending-specificity
+   820:1   ✖  Expected selector "li[data-task="/"] > input:checked" to come before selector "li[data-task="x"] > p > input:checked", at line 743                no-descending-specificity
+   821:1   ✖  Expected selector "li[data-task="/"] > p > input:checked" to come before selector "li[data-task="-"] > input:checked:hover", at line 769          no-descending-specificity
+   823:1   ✖  Expected selector "li[data-task="/"] > input:checked:hover" to come before selector "li[data-task="-"] > p > input:checked:hover", at line 769    no-descending-specificity
+   834:1   ✖  Expected selector "li[data-task="-"] > input:checked::after" to come before selector "li[data-task="x"] > p > input:checked::after", at line 830  no-descending-specificity
+   837:1   ✖  Expected selector "li[data-task=">"] > input:checked::after" to come before selector "li[data-task="x"] > p > input:checked::after", at line 830  no-descending-specificity
+   840:1   ✖  Expected selector "li[data-task="<"] > input:checked::after" to come before selector "li[data-task="x"] > p > input:checked::after", at line 830  no-descending-specificity
+   843:1   ✖  Expected selector "li[data-task="!"] > input:checked::after" to come before selector "li[data-task="x"] > p > input:checked::after", at line 830  no-descending-specificity
+   846:1   ✖  Expected selector "li[data-task="?"] > input:checked::after" to come before selector "li[data-task="x"] > p > input:checked::after", at line 830  no-descending-specificity
+   854:3   ✖  Vendor-prefixed property "-webkit-mask-position"                                                                                                  property-no-vendor-prefix
+   855:3   ✖  Vendor-prefixed property "-webkit-mask-size"                                                                                                      property-no-vendor-prefix
+   856:3   ✖  Vendor-prefixed property "-webkit-mask-repeat"                                                                                                    property-no-vendor-prefix
+   874:1   ✖  Expected selector "li[data-task="x"] > input:checked::after" to come before selector "li[data-task="x"] > p > input:checked::after", at line 830  no-descending-specificity
+   877:3   ✖  Vendor-prefixed property "-webkit-mask-image"                                                                                                     property-no-vendor-prefix
+   883:1   ✖  Expected selector "li[data-task="-"] > input:checked::after" to come before selector "li[data-task="x"] > p > input:checked::after", at line 830  no-descending-specificity
+   886:3   ✖  Vendor-prefixed property "-webkit-mask-image"                                                                                                     property-no-vendor-prefix
+   897:1   ✖  Expected selector "li[data-task=">"] > input:checked::after" to come before selector "li[data-task="x"] > p > input:checked::after", at line 830  no-descending-specificity
+   900:3   ✖  Vendor-prefixed property "-webkit-mask-image"                                                                                                     property-no-vendor-prefix
+   907:1   ✖  Expected selector "li[data-task="<"] > input:checked::after" to come before selector "li[data-task="x"] > p > input:checked::after", at line 830  no-descending-specificity
+   910:3   ✖  Vendor-prefixed property "-webkit-mask-image"                                                                                                     property-no-vendor-prefix
+   926:1   ✖  Expected selector "li[data-task="!"] > input:checked::after" to come before selector "li[data-task="x"] > p > input:checked::after", at line 830  no-descending-specificity
+   929:3   ✖  Vendor-prefixed property "-webkit-mask-image"                                                                                                     property-no-vendor-prefix
+   948:1   ✖  Expected selector "li[data-task="?"] > input:checked::after" to come before selector "li[data-task="x"] > p > input:checked::after", at line 830  no-descending-specificity
+   951:3   ✖  Vendor-prefixed property "-webkit-mask-image"                                                                                                     property-no-vendor-prefix
+   981:1   ✖  Expected empty line before rule                                                                                                                   rule-empty-line-before
+   985:1   ✖  Expected empty line before rule                                                                                                                   rule-empty-line-before
+  1046:1   ✖  Expected class selector ".kanban-plugin__lane" to be kebab-case                                                                                   selector-class-pattern
+  1050:1   ✖  Expected class selector ".kanban-plugin__lane-title-text" to be kebab-case                                                                        selector-class-pattern
+  1054:4   ✖  Expected class selector ".kanban-plugin__lane-title-count" to be kebab-case                                                                       selector-class-pattern
+  1079:12  ✖  Expected class selector ".theme--dark" to be kebab-case                                                                                           selector-class-pattern
+  1090:17  ✖  Expected class selector ".theme--dark" to be kebab-case                                                                                           selector-class-pattern
+  1108:36  ✖  Expected complex :not() pseudo-class notation                                                                                                     selector-not-notation
+  1140:17  ✖  Expected complex :not() pseudo-class notation                                                                                                     selector-not-notation
+  1147:24  ✖  Expected complex :not() pseudo-class notation                                                                                                     selector-not-notation
+
+✖ 92 problems (92 errors, 0 warnings)
+  50 errors potentially fixable with the "--fix" option.
+
