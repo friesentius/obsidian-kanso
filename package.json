@@ -4,10 +4,12 @@
   "description": "CI tooling for the Kanso Obsidian theme. Not an Obsidian plugin.",
   "scripts": {
     "validate": "node scripts/validate-json.mjs",
-    "lint:css": "stylelint theme.css"
+    "lint:css": "stylelint theme.css",
+    "lint:obsidian-review": "stylelint --config .stylelintrc.obsidian-review.cjs --max-warnings 0 theme.css"
   },
   "devDependencies": {
-    "stylelint": "^16.0.0",
-    "stylelint-config-standard": "^36.0.0"
+    "stylelint": "17.6.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-no-unsupported-browser-features": "8.1.1"
   }
 }

@@ -24,3 +24,6 @@ jobs:
 
       - name: Lint theme.css
         run: npm run lint:css
+
+      - name: Lint theme.css against Obsidian's theme review rules
+        run: npm run lint:obsidian-review
