@@ -124,6 +124,12 @@ settings:
     type: class-toggle
     default: false
   -
+    id: kanso-dim-inactive
+    title: Dim inactive panes
+    description: Subtly dim unfocused editor splits to draw focus to the active note, matching kanso.nvim's dimInactive option. Hovering reveals the pane.
+    type: class-toggle
+    default: false
+  -
     id: kanso-custom-accent
     title: Custom accent color
     description: Override the active variant's accent color. Off by default, so each variant keeps its own accent until you turn this on.
@@ -189,11 +195,13 @@ settings:
   --kanso-red: #c34043;
   --kanso-red-soft: #c4746e;
   --kanso-orange: #b6927b;
+  --kanso-orange-soft: #b98d7b;
   --kanso-yellow: #dca561;
   --kanso-yellow-soft: #c4b28a;
   --kanso-green: #98bb6c;
   --kanso-green-soft: #8a9a7b;
   --kanso-aqua: #8ea4a2;
+  --kanso-aqua-soft: #7aa89f;
   --kanso-blue: #7fb4ca;
   --kanso-blue-soft: #8ba4b0;
   --kanso-violet: #938aa9;
@@ -248,11 +256,13 @@ settings:
   --kanso-red: #c84053;
   --kanso-red-soft: #d7474b;
   --kanso-orange: #cc6d00;
+  --kanso-orange-soft: #b86828;
   --kanso-yellow: #77713f;
   --kanso-yellow-soft: #836f4a;
   --kanso-green: #6f894e;
   --kanso-green-soft: #6e915f;
   --kanso-aqua: #597b75;
+  --kanso-aqua-soft: #5e857a;
   --kanso-blue: #4d699b;
   --kanso-blue-soft: #5a7785;
   --kanso-violet: #624c83;
@@ -285,11 +295,13 @@ settings:
   --kanso-red: #c93134;
   --kanso-red-soft: #ca675f;
   --kanso-orange: #bc8a6c;
+  --kanso-orange-soft: #bf856b;
   --kanso-yellow: #e59f49;
   --kanso-yellow-soft: #caac7a;
   --kanso-green: #8fc055;
   --kanso-green-soft: #7f9f6e;
   --kanso-aqua: #81aaa9;
+  --kanso-aqua-soft: #6bae97;
   --kanso-blue: #6ebbd4;
   --kanso-blue-soft: #7eaaba;
   --kanso-violet: #8a88b0;
@@ -304,11 +316,13 @@ settings:
   --kanso-red: #d72436;
   --kanso-red-soft: #e42d2c;
   --kanso-orange: #e05700;
+  --kanso-orange-soft: #c65d1b;
   --kanso-yellow: #656720;
   --kanso-yellow-soft: #72612b;
   --kanso-green: #5e8f2f;
   --kanso-green-soft: #5b9945;
   --kanso-aqua: #3e8366;
+  --kanso-aqua-soft: #428f6a;
   --kanso-blue: #2a73b1;
   --kanso-blue-soft: #3d8077;
   --kanso-violet: #44418f;
@@ -352,6 +366,26 @@ body {
   --text-search-bg-active: var(--kanso-search);
   --search-result-background: color-mix(in srgb, var(--kanso-search) 70%, transparent);
   --search-result-background-active: var(--kanso-search);
+
+  --graph-controls-width: 260px;
+  --graph-text: var(--kanso-fg);
+  --graph-line: color-mix(in srgb, var(--kanso-bg3) 85%, transparent);
+  --graph-node: var(--kanso-blue);
+  --graph-node-unresolved: var(--kanso-muted);
+  --graph-node-focused: var(--kanso-yellow);
+  --graph-node-tag: var(--kanso-violet);
+  --graph-node-attachment: var(--kanso-green);
+
+  --canvas-background: var(--kanso-bg0);
+  --canvas-card-label-color: var(--kanso-muted-2);
+  --canvas-dot-pattern: var(--kanso-bg3);
+  --canvas-color: var(--kanso-bg4);
+  --canvas-color-1: var(--kanso-red-soft);
+  --canvas-color-2: var(--kanso-green);
+  --canvas-color-3: var(--kanso-blue);
+  --canvas-color-4: var(--kanso-violet);
+  --canvas-color-5: var(--kanso-aqua);
+  --canvas-color-6: var(--kanso-yellow);
 
   --interactive-success: var(--kanso-green);
 
@@ -520,6 +554,7 @@ body.theme-light {
   --accent-l: 45%;
   --background-modifier-box-shadow: rgba(34, 38, 45, 0.15);
   --text-on-accent: #f2f1ef;
+  --canvas-color: var(--kanso-bg3);
 }
 
 body.theme-light.kanso-zen,
@@ -531,6 +566,7 @@ body.theme-light.kanso-void {
   --accent-l: 65%;
   --background-modifier-box-shadow: rgba(0, 0, 0, 0.25);
   --text-on-accent: var(--kanso-bg0);
+  --canvas-color: var(--kanso-bg4);
 }
 
 body.theme-dark.kanso-pearl {
@@ -539,6 +575,7 @@ body.theme-dark.kanso-pearl {
   --accent-l: 45%;
   --background-modifier-box-shadow: rgba(34, 38, 45, 0.15);
   --text-on-accent: #f2f1ef;
+  --canvas-color: var(--kanso-bg3);
 }
 
 body.theme-dark.kanso-custom-accent,
@@ -1211,6 +1248,28 @@ li[data-task="?"] > p > input:checked::after {
   }
 }
 
+/* Dim inactive panes (Style Settings toggle, off by default): inspired by
+   kanso.nvim's `dimInactive = true` option. Subtly dims unfocused editor
+   splits in the root workspace to focus attention on the active note. */
+
+.kanso-dim-inactive .workspace-split.mod-root .workspace-leaf {
+  transition: opacity 0.15s ease;
+}
+
+.kanso-dim-inactive .workspace-split.mod-root .workspace-leaf:not(.mod-active) {
+  opacity: 0.55;
+}
+
+@media (hover: hover) {
+  .kanso-dim-inactive .workspace-split.mod-root .workspace-leaf:not(.mod-active):hover {
+    opacity: 0.9;
+  }
+}
+
+.kanso-dim-inactive .workspace-split.mod-root .workspace-leaf.mod-active {
+  opacity: 1;
+}
+
 /* Dataview plugin (blacksmithgu/obsidian-dataview): query tables and
    inline fields. Its table rows, task hovers, and striping already follow
    Kanso through the --table-* and --text-* variables. Its own stylesheet
@@ -1475,6 +1534,54 @@ body:not(.kanso-image-zoom-disabled)
   color: var(--kanso-yellow);
 }
 
+/* Graph view styling (kanso.nvim graph palette & controls) */
+
+.graph-view-container .graph-controls {
+  background-color: var(--kanso-bg1);
+  border: 1px solid var(--kanso-bg3);
+  border-radius: var(--radius-m);
+  box-shadow: 0 4px 20px var(--background-modifier-box-shadow);
+}
+
+.graph-view-container .graph-controls .clickable-icon {
+  border-radius: var(--radius-s);
+}
+
+.graph-view-container .graph-controls .clickable-icon:hover {
+  background-color: var(--background-modifier-hover);
+  color: var(--kanso-fg2);
+}
+
+/* Canvas view styling (kanso.nvim canvas palette, card colors & controls) */
+
+.canvas-controls .canvas-control-group,
+.canvas-card-menu,
+.canvas-menu,
+.canvas-submenu {
+  background-color: var(--kanso-bg1);
+  border: 1px solid var(--kanso-bg3);
+  border-radius: var(--radius-m);
+  box-shadow: 0 4px 20px var(--background-modifier-box-shadow);
+}
+
+.canvas-controls .canvas-control-item {
+  background-color: var(--kanso-bg1);
+  border-bottom: 1px solid var(--kanso-bg3);
+  color: var(--kanso-muted-2);
+}
+
+.canvas-controls .canvas-control-item:last-child {
+  border-bottom: none;
+}
+
+.canvas-controls .canvas-control-item:hover,
+.canvas-card-menu .canvas-card-menu-button:hover,
+.canvas-menu .clickable-icon:hover,
+.canvas-submenu .clickable-icon:hover {
+  background-color: var(--background-modifier-hover);
+  color: var(--kanso-fg2);
+}
+
 /* Minimal mode (Style Settings toggle, off by default): inspired by
    kanso.nvim's `minimal = true` option. Reduces visual noise and color
    proliferation across notes for a calmer, distraction-free writing
@@ -1493,6 +1600,21 @@ body.theme-light.kanso-minimal-mode {
   --h4-color: var(--kanso-fg);
   --h5-color: var(--kanso-muted-2);
   --h6-color: var(--kanso-muted-2);
+
+  --graph-node: var(--kanso-fg);
+  --graph-node-focused: var(--kanso-fg2);
+  --graph-node-tag: var(--kanso-muted-2);
+  --graph-node-attachment: var(--kanso-muted-2);
+  --graph-node-unresolved: var(--kanso-muted);
+  --graph-line: var(--kanso-bg2);
+
+  --canvas-dot-pattern: var(--kanso-bg2);
+  --canvas-color-1: var(--kanso-red-soft);
+  --canvas-color-2: var(--kanso-green-soft);
+  --canvas-color-3: var(--kanso-blue-soft);
+  --canvas-color-4: var(--kanso-violet-soft);
+  --canvas-color-5: var(--kanso-aqua-soft);
+  --canvas-color-6: var(--kanso-yellow-soft);
 
   --tag-color: var(--kanso-muted-2);
   --tag-background: color-mix(in srgb, var(--kanso-bg2) 75%, transparent);

@@ -12,6 +12,7 @@ A calm, minimal Obsidian theme ported from [kanso.nvim](https://github.com/webho
 - Styling for the [Tasks](https://github.com/obsidian-tasks-group/obsidian-tasks) plugin's due, scheduled, and start dates
 - Active line highlight while editing, like kanso.nvim's cursorline
 - Focus mode, which hides the title bar, status bar, and ribbon for distraction-free writing
+- Dim inactive panes: subtly dims unfocused editor splits, focusing attention on the active note (from kanso.nvim)
 - Optional custom accent color, overriding a variant's accent without swapping variants
 - Optional font-family choices for body text, headings, and code, each with web-safe fallbacks
 - Styling for Dataview, Kanban, Excalidraw, and Calendar
@@ -21,6 +22,8 @@ A calm, minimal Obsidian theme ported from [kanso.nvim](https://github.com/webho
 - Minimal mode: a reduced, monochromatic color palette for distraction-free writing, with muted headings, subdued tags, neutral italics, and quiet code syntax from kanso.nvim
 - Saturated foreground: increases the saturation of syntax highlighting and headings (+20% in dark mode, +40% in Pearl), matching kanso.nvim's saturated mode
 - Search & Diff highlights: serene altBlue search matches and full diffGreen/diffRed/diffYellow palette for diff code blocks, File Recovery, and Obsidian Git
+- Graph view styled to match Kanso's palette, with serene blue note nodes, yellow focused highlights, violet tag nodes, and subtle connection lines
+- Canvas support: maps Obsidian Canvas's 6 card and sticky note colors to Kanso's heading palette (red-soft, green, blue, violet, aqua, yellow) and styles grid dots, controls, and card menus
 - Folder icons in the file explorer, open or closed to match the folder's state
 
 ## Installation
@@ -42,6 +45,7 @@ Kanso works without any plugins. With the Style Settings plugin installed, the *
 | Editor font size | Size in pixels | 16px |
 | Disable active line highlight | On, Off | Off |
 | Focus mode | On, Off | Off |
+| Dim inactive panes | On, Off | Off |
 | Minimal mode | On, Off | Off |
 | Saturated foreground | On, Off | Off |
 | Custom accent color | Off, or a color picker | Off |
@@ -84,6 +88,10 @@ Kanso highlights the line your cursor is on while editing, matching the cursorli
 
 With the Style Settings plugin installed, turning on Focus mode hides the title bar, status bar, and ribbon for distraction-free writing. Hover near the left edge to bring the ribbon back, the bottom-right to bring the status bar back, or the window controls in the top-right to bring the title bar back; move the pointer away and each hides again. On touch devices, where there's no hover to rely on, nothing is hidden in the first place: the title bar and status bar stay visible (mobile Obsidian has no ribbon to hide). Turn the setting off to restore the normal layout.
 
+## Dim inactive panes
+
+Ported from kanso.nvim's `dimInactive = true` option, this setting subtly reduces the opacity of unfocused editor splits (to 55%) in split-view layouts. This naturally draws visual attention to whichever note is currently active. Hovering the pointer over an inactive pane smoothly restores its clarity (to 90%), allowing effortless reading across panes before clicking to switch focus. Sidebars (file explorer, search, outline) are unaffected.
+
 ## Minimal mode
 
 Ported from kanso.nvim's `minimal = true` option, Minimal mode subdues color variety across your notes for a cleaner, quieter writing and reading environment. When enabled via Style Settings:
@@ -111,6 +119,22 @@ Ported from kanso.nvim's `minimal = true` option, Minimal mode subdues color var
 ## Saturated foreground
 
 Ported from kanso.nvim's `foreground = "saturated"` option, this setting enhances the saturation and vibrancy of syntax highlighting colors, headings, and tags (+20% in dark mode and +40% in Pearl/light mode). It is off by default and only affects foreground accents when enabled, leaving UI backgrounds and structural layout completely calm.
+
+## Graph view
+
+Kanso styles the native Graph view (and local graph) with the same calm, disciplined palette used throughout the theme:
+
+- **Nodes:** Existing notes render in serene blue (`--kanso-blue`), focused notes in warm yellow (`--kanso-yellow`), tags in violet (`--kanso-violet`), and attachments in green (`--kanso-green`). Unresolved links stay subdued in muted gray.
+- **Connection lines:** Rendered with semi-transparent lines matching Kanso's border tone (`--kanso-bg3`), reducing visual noise across dense graphs.
+- **Controls panel:** Graph settings and filter panels use Kanso's elevated card surface (`--kanso-bg1`) with subtle borders and rounded corners.
+
+## Canvas
+
+Obsidian Canvas's native palette is completely harmonized with Kanso:
+
+- **Card & note colors (1–6):** mapped directly to Kanso's heading colors (`red-soft`, `green`, `blue`, `violet`, `aqua`, `yellow`), matching `--h1-color` through `--h6-color` for visual consistency across notes and canvas, and automatically adapting across variants (Zen, Ink, Mist, Void, Pearl) and modes (Saturated, Minimal).
+- **Grid dot pattern:** rendered in Kanso's subtle border tone (`--kanso-bg3` in standard mode, `--kanso-bg2` in Minimal mode), providing clean spatial orientation without visual clutter.
+- **Canvas controls & menus:** toolbar groups, card creation menus, and color picker popups carry Kanso's elevated background (`--kanso-bg1`), soft border, and rounded corners.
 
 ## Plugin styling
 
