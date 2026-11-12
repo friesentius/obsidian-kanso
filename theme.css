@@ -1534,46 +1534,286 @@ div.kanban-plugin__lane-title-count.wip-exceeded {
   color: var(--kanso-fg2);
 }
 
-/* Excalidraw plugin (zsviczian/obsidian-excalidraw-plugin): the toolbar,
-   side panels, and popups around the canvas, which Excalidraw themes with
-   its own CSS variables, rewritten as an inline style on the `.excalidraw`
-   container every time a drawing opens (most visibly with Excalidraw's own
-   "Match Obsidian theme" setting, which samples a generic dark/light
-   palette rather than this theme's colors). These variables inherit, so an
-   inline value on `.excalidraw` itself can be beaten without `!important`
-   by redeclaring them one level down, on `.excalidraw`'s own direct
-   children (the top/bottom toolbar containers and the context-menu/eye
-   -dropper layers Excalidraw renders its islands and popups into): a normal
-   rule on a descendant always wins over a value the ancestor only has
-   inline. Verified live, with "Match Obsidian theme" on, that the toolbar
-   island, popups, and text still take Kanso's colors exactly as before in
-   both Zen and Pearl. The canvas itself cannot be reached from CSS at all:
-   it is painted by Excalidraw onto a <canvas> element, and with "Match
-   Obsidian theme" on, Excalidraw substitutes its own fixed default
-   dark/light canvas color (verified live: the rendered pixel color matches
-   neither the drawing's saved background nor any CSS custom property this
-   theme or Excalidraw itself exposes). No-op without the plugin. */
+/* Excalidraw plugin (zsviczian/obsidian-excalidraw-plugin): companion styling
+   supporting both of Excalidraw's internal modes (Dark via .theme--dark and
+   Light via :not(.theme--dark)).
+   Excalidraw renders its UI (toolbars, islands, dropdown menus, and bottom actions)
+   using CSS custom properties and surface tokens written as an inline style on
+   the `.excalidraw` container. Descendant rules override these without !important
+   to ensure high contrast, legible text, distinct swatches, and crisp keybinding
+   indicators (0, 1, 2...) in both modes. The canvas itself cannot be reached from
+   CSS: it is painted by Excalidraw onto a <canvas> element using its own fixed
+   default dark/light canvas color when "Match Obsidian theme" is on.
+   No-op without the plugin. */
 
+/* Excalidraw in Dark mode */
 .excalidraw.theme--dark > * {
-  --island-bg-color: var(--kanso-bg1);
-  --popup-bg-color: var(--kanso-bg1);
-  --popup-secondary-bg-color: var(--kanso-bg2);
-  --text-primary-color: var(--kanso-fg);
-  --popup-text-color: var(--kanso-fg);
-  --icon-fill-color: var(--kanso-fg);
-  --color-primary: var(--kanso-blue);
-  --button-gray-1: var(--kanso-bg2);
+  --island-bg-color: var(--kanso-bg1, #12171f);
+  --popup-bg-color: var(--kanso-bg1, #12171f);
+  --popup-secondary-bg-color: var(--kanso-bg2, #1a202a);
+  --color-surface-lowest: var(--kanso-bg0, #090e13);
+  --color-surface-low: var(--kanso-bg1, #12171f);
+  --color-surface-mid: var(--kanso-bg2, #1a202a);
+  --color-surface-high: var(--kanso-bg3, #22262d);
+  --color-surface-primary-container: color-mix(in srgb, var(--kanso-blue, #7e9cd8) 25%, var(--kanso-bg2, #1a202a));
+  --color-on-surface: var(--kanso-fg, #c5c9c7);
+  --color-on-primary-container: var(--kanso-fg, #c5c9c7);
+  --text-primary-color: var(--kanso-fg, #c5c9c7);
+  --popup-text-color: var(--kanso-fg, #c5c9c7);
+  --icon-fill-color: var(--kanso-fg, #c5c9c7);
+  --button-color: var(--kanso-fg, #c5c9c7);
+  --color-primary: var(--kanso-blue, #7e9cd8);
+  --color-primary-light: color-mix(in srgb, var(--kanso-blue, #7e9cd8) 20%, var(--kanso-bg2, #1a202a));
+  --color-brand-active: var(--kanso-blue, #7e9cd8);
+  --color-disabled: var(--kanso-muted, #727169);
+  --button-hover-bg: var(--kanso-bg2, #1a202a);
+  --button-hover: var(--kanso-bg2, #1a202a);
+  --button-gray-1: var(--kanso-bg1, #12171f);
+  --button-gray-2: var(--kanso-bg2, #1a202a);
+  --button-gray-3: var(--kanso-bg3, #22262d);
+  --default-border-color: var(--kanso-bg3, #22262d);
+  --dialog-border-color: var(--kanso-bg3, #22262d);
+  --sidebar-border-color: var(--kanso-bg3, #22262d);
+  --color-border-outline: var(--kanso-bg3, #22262d);
+  --input-bg-color: var(--kanso-bg0, #090e13);
+  --input-border-color: var(--kanso-bg3, #22262d);
+  --input-label-color: var(--kanso-fg, #c5c9c7);
+  --keybinding-color: var(--kanso-fg2, #a0a5a3);
 }
 
+.excalidraw.theme--dark .Island,
+.excalidraw.theme--dark .dropdown-menu-container,
+.excalidraw.theme--dark .Modal__content {
+  border: 1px solid var(--kanso-bg3, #22262d);
+}
+
+.excalidraw.theme--dark .dropdown-menu-container {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.excalidraw.theme--dark .dropdown-menu-item-base {
+  color: var(--kanso-fg, #c5c9c7);
+}
+
+.excalidraw.theme--dark .dropdown-menu-item svg {
+  color: var(--kanso-fg, #c5c9c7);
+}
+
+.excalidraw.theme--dark .dropdown-menu-item__shortcut {
+  color: var(--kanso-fg2, #a0a5a3);
+  opacity: 0.75;
+}
+
+.excalidraw.theme--dark .color-picker__heading {
+  color: var(--kanso-fg2, #a0a5a3);
+}
+
+.excalidraw.theme--dark .main-menu-trigger {
+  color: var(--kanso-fg, #c5c9c7);
+  border: 1px solid var(--kanso-bg3, #22262d);
+}
+
+.excalidraw.theme--dark .main-menu-trigger:hover {
+  --color-surface-low: var(--kanso-bg2, #1a202a);
+}
+
+.excalidraw.theme--dark :is(.undo-redo-buttons, .zoom-actions) {
+  border: 1px solid var(--kanso-bg3, #22262d);
+}
+
+.excalidraw.theme--dark :is(.undo-redo-buttons button, .zoom-button) {
+  color: var(--kanso-fg, #c5c9c7);
+}
+
+.excalidraw.theme--dark :is(.undo-redo-buttons button:hover, .zoom-button:hover) {
+  --color-surface-low: var(--kanso-bg2, #1a202a);
+}
+
+.excalidraw.theme--dark .undo-redo-buttons button:is([aria-disabled="true"], :disabled) {
+  color: var(--kanso-muted, #727169);
+  opacity: 0.5;
+}
+
+.excalidraw.theme--dark :is(.dropdown-menu hr, .dropdown-menu-group-separator, .context-menu-option-separator) {
+  border-color: var(--kanso-bg3, #22262d);
+}
+
+/* Excalidraw in Light mode */
 .excalidraw:not(.theme--dark) > * {
-  --island-bg-color: var(--kanso-bg0);
-  --popup-bg-color: var(--kanso-bg0);
-  --popup-secondary-bg-color: var(--kanso-bg1);
-  --text-primary-color: var(--kanso-fg);
-  --popup-text-color: var(--kanso-fg);
-  --icon-fill-color: var(--kanso-fg);
-  --color-primary: var(--kanso-blue);
-  --button-gray-1: var(--kanso-bg1);
+  --island-bg-color: #fff;
+  --popup-bg-color: #fff;
+  --popup-secondary-bg-color: #f8f9fa;
+  --color-surface-lowest: #fff;
+  --color-surface-low: #f4f4f5;
+  --color-surface-mid: #e4e4e7;
+  --color-surface-high: #d4d4d8;
+  --color-surface-primary-container: color-mix(in srgb, var(--kanso-blue, #2b6cb0) 18%, #fff);
+  --color-on-surface: #18181b;
+  --color-on-primary-container: var(--kanso-blue, #2b6cb0);
+  --text-primary-color: #18181b;
+  --popup-text-color: #18181b;
+  --icon-fill-color: #18181b;
+  --button-color: #18181b;
+  --color-primary: var(--kanso-blue, #2b6cb0);
+  --color-primary-light: color-mix(in srgb, var(--kanso-blue, #2b6cb0) 12%, #fff);
+  --color-brand-active: var(--kanso-blue, #2b6cb0);
+  --color-disabled: #a1a1aa;
+  --button-hover-bg: #f4f4f5;
+  --button-hover: #f4f4f5;
+  --button-gray-1: #fff;
+  --button-gray-2: #f4f4f5;
+  --button-gray-3: #e4e4e7;
+  --default-border-color: #e4e4e7;
+  --dialog-border-color: #e4e4e7;
+  --sidebar-border-color: #e4e4e7;
+  --color-border-outline: #e4e4e7;
+  --input-bg-color: #fff;
+  --input-border-color: #e4e4e7;
+  --input-label-color: #18181b;
+  --keybinding-color: #52525b;
+}
+
+.excalidraw:not(.theme--dark) .Island,
+.excalidraw:not(.theme--dark) .dropdown-menu-container,
+.excalidraw:not(.theme--dark) .Modal__content {
+  border: 1px solid #e4e4e7;
+}
+
+.excalidraw:not(.theme--dark) .dropdown-menu-container {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.excalidraw:not(.theme--dark) .dropdown-menu-item-base {
+  color: #18181b;
+}
+
+.excalidraw:not(.theme--dark) .dropdown-menu-item svg {
+  color: #18181b;
+}
+
+.excalidraw:not(.theme--dark) .dropdown-menu-item__shortcut {
+  color: #71717a;
+  opacity: 0.75;
+}
+
+.excalidraw:not(.theme--dark) .color-picker__heading {
+  color: #52525b;
+}
+
+.excalidraw:not(.theme--dark) .main-menu-trigger {
+  color: #18181b;
+  border: 1px solid #e4e4e7;
+}
+
+.excalidraw:not(.theme--dark) .main-menu-trigger:hover {
+  --color-surface-low: #f4f4f5;
+}
+
+.excalidraw:not(.theme--dark) :is(.undo-redo-buttons, .zoom-actions) {
+  border: 1px solid #e4e4e7;
+}
+
+.excalidraw:not(.theme--dark) :is(.undo-redo-buttons button, .zoom-button) {
+  color: #18181b;
+}
+
+.excalidraw:not(.theme--dark) :is(.undo-redo-buttons button:hover, .zoom-button:hover) {
+  --color-surface-low: #f4f4f5;
+}
+
+.excalidraw:not(.theme--dark) .undo-redo-buttons button:is([aria-disabled="true"], :disabled) {
+  color: #a1a1aa;
+  opacity: 0.5;
+}
+
+.excalidraw:not(.theme--dark) :is(.dropdown-menu hr, .dropdown-menu-group-separator, .context-menu-option-separator) {
+  border-color: #e4e4e7;
+}
+
+/* Toolbar keybinding numbers (0, 1, 2, 3...) */
+.excalidraw .ToolIcon__keybinding {
+  font-weight: 500;
+  opacity: 1;
+}
+
+.excalidraw:not(.theme--dark) .ToolIcon__keybinding {
+  color: #52525b;
+}
+
+.excalidraw:not(.theme--dark) .ToolIcon:hover .ToolIcon__keybinding {
+  color: #18181b;
+}
+
+.excalidraw.theme--dark .ToolIcon__keybinding {
+  color: var(--kanso-fg2, #a0a5a3);
+}
+
+.excalidraw.theme--dark .ToolIcon:hover .ToolIcon__keybinding {
+  color: var(--kanso-fg, #c5c9c7);
+}
+
+/* Swatches in Canvas background options menu: distinct, clearly differentiated tones */
+.excalidraw .color-picker__top-picks .color-picker__button {
+  filter: none;
+  border-width: 1.5px;
+  border-style: solid;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.excalidraw .color-picker__top-picks .color-picker__button:hover {
+  transform: scale(1.1);
+}
+
+/* Dark mode canvas swatches: distinct tones with high-contrast borders */
+.excalidraw.theme--dark .color-picker__top-picks .color-picker__button:nth-child(1) {
+  --swatch-color: #121212;
+  border-color: #4a5568;
+}
+
+.excalidraw.theme--dark .color-picker__top-picks .color-picker__button:nth-child(2) {
+  --swatch-color: #1a202c;
+  border-color: #718096;
+}
+
+.excalidraw.theme--dark .color-picker__top-picks .color-picker__button:nth-child(3) {
+  --swatch-color: #172554;
+  border-color: #60a5fa;
+}
+
+.excalidraw.theme--dark .color-picker__top-picks .color-picker__button:nth-child(4) {
+  --swatch-color: #3b2d18;
+  border-color: #f59e0b;
+}
+
+.excalidraw.theme--dark .color-picker__top-picks .color-picker__button:nth-child(5) {
+  --swatch-color: #3b1d28;
+  border-color: #f43f5e;
+}
+
+/* Light mode canvas swatches: distinct pastel tones with colored borders */
+.excalidraw:not(.theme--dark) .color-picker__top-picks .color-picker__button:nth-child(1) {
+  --swatch-color: #fff;
+  border-color: #a1a1aa;
+}
+
+.excalidraw:not(.theme--dark) .color-picker__top-picks .color-picker__button:nth-child(2) {
+  --swatch-color: #f4f4f5;
+  border-color: #71717a;
+}
+
+.excalidraw:not(.theme--dark) .color-picker__top-picks .color-picker__button:nth-child(3) {
+  --swatch-color: #e0f2fe;
+  border-color: #38bdf8;
+}
+
+.excalidraw:not(.theme--dark) .color-picker__top-picks .color-picker__button:nth-child(4) {
+  --swatch-color: #fef9c3;
+  border-color: #eab308;
+}
+
+.excalidraw:not(.theme--dark) .color-picker__top-picks .color-picker__button:nth-child(5) {
+  --swatch-color: #ffe4e6;
+  border-color: #fb7185;
 }
 
 /* Folder icons (Style Settings toggle, on by default): a Lucide "folder"
